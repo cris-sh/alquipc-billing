@@ -1,0 +1,23 @@
+{
+  "name": "aqluipc-billing",
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "typescript": "~5.7.2",
+    "vite": "^6.3.1"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
+    "html2canvas-pro": "^1.5.10",
+    "jspdf": "^3.0.1",
+    "tailwindcss": "^4.1.4"
+  }
+}

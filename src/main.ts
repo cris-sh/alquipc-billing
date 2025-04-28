@@ -614,26 +614,21 @@ document
        * Libreria apta para eso (sugerida): html2canvas-pro
        *
        */
-
       document
         .getElementById("download-pdf")
         ?.addEventListener("click", async function () {
-          // Mostrar indicador de carga
-          //   const loadingModal = document.createElement("div");
-          //   loadingModal.className =
-          //     "fixed inset-0 bg-black/50 flex items-center justify-center z-50";
-          //   loadingModal.innerHTML = `
-          //   <div class="bg-white p-6 rounded-lg shadow-xl">
-          //     <div class="flex items-center">
-          //       <i class="fas fa-spinner fa-spin mr-3 text-blue-500 text-xl"></i>
-          //       <p>Generando PDF, por favor espere...</p>
-          //     </div>
-          //   </div>
-          // `;
-          //   document.body.appendChild(loadingModal);
-
-          // Delay
-          await new Promise((resolve) => setTimeout(resolve, 1000));
+            const loadingModal = document.createElement("div");
+            loadingModal.className =
+              "fixed inset-0 bg-black/50 flex items-center justify-center z-50";
+            loadingModal.innerHTML = `
+            <div class="bg-white p-6 rounded-lg shadow-xl">
+              <div class="flex items-center">
+                <i class="fas fa-spinner fa-spin mr-3 text-blue-500 text-xl"></i>
+                <p>Generando PDF, por favor espere...</p>
+              </div>
+            </div>
+          `;
+            document.body.appendChild(loadingModal);
 
           try {
             if (!receiptElement) {
@@ -662,7 +657,7 @@ document
               allowTaint: true,
 
               scale: 2,
-              logging: true,
+              logging: false,
 
               onclone: (clonedDoc) => {
                 console.log(clonedDoc);
@@ -695,7 +690,7 @@ document
               "Error al generar el PDF. Por favor, intente nuevamente."
             );
           } finally {
-            // loadingModal.remove();
+            loadingModal.remove();
           }
         });
 

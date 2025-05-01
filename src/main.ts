@@ -7,23 +7,23 @@ import html2canvas from "html2canvas-pro";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div class="min-h-screen bg-gray-50 flex flex-col">
-    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 shadow-lg">
+    <header class="bg-gradient-to-r from-gray-800 to-gray-900 text-white p-5 shadow-md">
       <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div class="flex items-center mb-4 md:mb-0">
-          <i class="fas fa-laptop-code text-3xl mr-4"></i>
+          <i class="fas fa-desktop text-2xl mr-3"></i>
           <div>
-            <h1 class="text-3xl font-bold tracking-tight">ALQUIPC</h1>
-            <p class="text-sm text-blue-100">Sistema de Facturación de Alquiler de Equipos</p>
+            <h1 class="text-2xl font-semibold tracking-tight">ALQUIPC</h1>
+            <p class="text-xs text-gray-300">Sistema de Facturación de Alquiler de Equipos</p>
           </div>
         </div>
         <div class="flex items-center">
           <div class="hidden md:block text-right mr-6">
-            <div class="text-sm text-blue-100">Servicio al Cliente</div>
-            <div class="text-lg font-semibold">01 8000 123 456</div>
+            <div class="text-xs text-gray-300">Servicio al Cliente</div>
+            <div class="text-base font-medium">01 8000 123 456</div>
           </div>
-          <button id="theme-toggle" class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors" 
+          <button id="theme-toggle" class="bg-white/10 p-2 rounded-md hover:bg-white/15 transition-colors" 
             aria-label="Cambiar tema">
-            <i class="fas fa-moon text-yellow-300"></i>
+            <i class="fas fa-moon text-gray-200"></i>
           </button>
         </div>
       </div>
@@ -31,46 +31,46 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     
     <main class="container mx-auto p-4 md:p-6 flex-grow">
       <div class="max-w-4xl mx-auto">
-        <!-- Título de sección con animación -->
+        <!-- Título de sección -->
         <div class="slide-up">
-          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center">
-            <i class="fas fa-file-invoice-dollar mr-3 text-blue-600"></i>
+          <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-4 flex items-center">
+            <i class="fas fa-file-invoice mr-2 text-gray-600"></i>
             Nueva Orden de Alquiler
           </h2>
-          <p class="text-gray-600 mb-8">Complete el formulario para generar una nueva orden de alquiler y factura.</p>
+          <p class="text-gray-600 mb-6 text-sm">Complete el formulario para generar una nueva orden de alquiler y factura.</p>
         </div>
         
-        <!-- Formulario principal con tarjeta y sombra elevada -->
-        <div class="bg-white rounded-xl shadow-xl p-6 md:p-8 fade-in mb-8">
-          <form id="rental-form" class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Formulario principal -->
+        <div class="bg-white rounded-lg shadow-md p-5 md:p-6 fade-in mb-8">
+          <form id="rental-form" class="space-y-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div class="form-group">
                 <label for="client-id" class="block text-sm font-medium text-gray-700 mb-1 items-center">
-                  <i class="fas fa-id-card text-blue-500 mr-2"></i>
+                  <i class="fas fa-id-card text-gray-500 mr-1.5"></i>
                   ID Cliente
                 </label>
                 <div class="flex">
                   <input type="text" id="client-id" aria-describedby="client-id-help"
-                    class="bg-gray-50 rounded-l-lg py-3 px-4 w-full text-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    readonly placeholder="Generate un ID de cliente">
+                    class="bg-gray-50 rounded-l-md py-2 px-3 w-full text-gray-700 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    readonly placeholder="Genere un ID de cliente">
                   <button type="button" id="generate-id" 
-                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 rounded-r-lg transition-colors flex items-center">
-                    <i class="fas fa-magic mr-2"></i> Generar
+                    class="bg-gray-700 hover:bg-gray-800 text-white px-3 rounded-r-md transition-colors flex items-center">
+                    <i class="fas fa-cog mr-1.5"></i> Generar
                   </button>
                 </div>
-                <p id="client-id-help" class="mt-1 text-sm text-gray-500 flex items-center">
-                  <i class="fas fa-info-circle mr-1 text-blue-400"></i>
+                <p id="client-id-help" class="mt-1 text-xs text-gray-500 flex items-center">
+                  <i class="fas fa-info-circle mr-1 text-gray-400"></i>
                   Este ID será utilizado para identificar su orden.
                 </p>
               </div>
               
               <div class="form-group">
                 <label for="location" class="block text-sm font-medium text-gray-700 mb-1 items-center">
-                  <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
+                  <i class="fas fa-map-marker-alt text-gray-500 mr-1.5"></i>
                   Ubicación
                 </label>
                 <div class="relative">
-                  <select id="location" class="w-full rounded-lg py-3 px-4 text-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none">
+                  <select id="location" class="w-full rounded-md py-2 px-3 text-gray-700 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none">
                     <option value="${
                       RentalLocation.WITHIN_CITY
                     }">Dentro de la ciudad</option>
@@ -85,77 +85,77 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
                     <i class="fas fa-chevron-down text-gray-400"></i>
                   </div>
                 </div>
-                <p class="mt-1 text-sm text-gray-500 flex items-center">
-                  <i class="fas fa-tag mr-1 text-blue-400"></i>
+                <p class="mt-1 text-xs text-gray-500 flex items-center">
+                  <i class="fas fa-tag mr-1 text-gray-400"></i>
                   La ubicación afecta al precio final del servicio.
                 </p>
               </div>
               
               <div class="form-group">
                 <label for="computer-count" class="block text-sm font-medium text-gray-700 mb-1 items-center">
-                  <i class="fas fa-laptop text-blue-500 mr-2"></i>
+                  <i class="fas fa-laptop text-gray-500 mr-1.5"></i>
                   Número de equipos
                 </label>
                 <div class="relative">
                   <input type="number" id="computer-count" min="2" value="2" aria-describedby="computer-count-help"
-                    class="w-full rounded-lg py-3 px-4 text-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    class="w-full rounded-md py-2 px-3 text-gray-700 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500">
                   <div class="absolute inset-y-0 right-0 flex items-center px-3">
-                    <span class="text-gray-500">uds.</span>
+                    <span class="text-gray-500 text-sm">uds.</span>
                   </div>
                 </div>
-                <p id="computer-count-help" class="mt-1 text-sm text-gray-500 flex items-center">
-                  <i class="fas fa-exclamation-circle mr-1 text-amber-400"></i>
+                <p id="computer-count-help" class="mt-1 text-xs text-gray-500 flex items-center">
+                  <i class="fas fa-exclamation-circle mr-1 text-gray-400"></i>
                   Mínimo 2 equipos por orden.
                 </p>
               </div>
               
               <div class="form-group">
                 <label for="initial-days" class="block text-sm font-medium text-gray-700 mb-1 items-center">
-                  <i class="fas fa-calendar-day text-blue-500 mr-2"></i>
+                  <i class="fas fa-calendar text-gray-500 mr-1.5"></i>
                   Días de alquiler inicial
                 </label>
                 <div class="relative">
                   <input type="number" id="initial-days" min="1" value="1" 
-                    class="w-full rounded-lg py-3 px-4 text-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    class="w-full rounded-md py-2 px-3 text-gray-700 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500">
                   <div class="absolute inset-y-0 right-0 flex items-center px-3">
-                    <span class="text-gray-500">días</span>
+                    <span class="text-gray-500 text-sm">días</span>
                   </div>
                 </div>
-                <p class="mt-1 text-sm text-gray-500 flex items-center">
-                  <i class="fas fa-info-circle mr-1 text-blue-400"></i>
+                <p class="mt-1 text-xs text-gray-500 flex items-center">
+                  <i class="fas fa-info-circle mr-1 text-gray-400"></i>
                   Cantidad de días para el alquiler inicial.
                 </p>
               </div>
               
               <div class="form-group md:col-span-2 lg:col-span-1">
                 <label for="additional-days" class="block text-sm font-medium text-gray-700 mb-1 items-center">
-                  <i class="fas fa-calendar-plus text-blue-500 mr-2"></i>
+                  <i class="fas fa-calendar-plus text-gray-500 mr-1.5"></i>
                   Días adicionales
                 </label>
                 <div class="relative">
                   <input type="number" id="additional-days" min="0" value="0" aria-describedby="additional-days-help"
-                    class="w-full rounded-lg py-3 px-4 text-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    class="w-full rounded-md py-2 px-3 text-gray-700 border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500">
                   <div class="absolute inset-y-0 right-0 flex items-center px-3">
-                    <span class="text-gray-500">días</span>
+                    <span class="text-gray-500 text-sm">días</span>
                   </div>
                 </div>
-                <div class="mt-1 text-sm text-gray-500 flex items-center">
-                  <i class="fas fa-percentage mr-1 text-green-500"></i>
+                <div class="mt-1 text-xs text-gray-500 flex items-center">
+                  <i class="fas fa-percentage mr-1 text-gray-400"></i>
                   <span>Días extra con descuento del 2% por día.</span>
                 </div>
               </div>
             </div>
             
-            <div id="form-error" class="p-4 bg-red-50 border-l-4 border-red-500 text-red-700 hidden rounded-md">
+            <div id="form-error" class="p-3 bg-red-50 border-l-4 border-red-500 text-red-700 hidden rounded-md text-sm">
               <div class="flex">
                 <i class="fas fa-exclamation-circle mr-2 text-red-500"></i>
                 <span id="error-message"></span>
               </div>
             </div>
             
-            <div class="pt-6 border-t border-gray-200">
+            <div class="pt-4 border-t border-gray-200">
               <button type="submit" id="submit-button"
-                class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white py-3 px-4 rounded-lg font-medium shadow-md transition-all flex justify-center items-center">
+                class="w-full bg-gray-700 hover:bg-gray-800 text-white py-2.5 px-4 rounded-md font-medium shadow-sm transition-all flex justify-center items-center">
                 <i class="fas fa-calculator mr-2"></i>
                 Calcular y Generar Factura
               </button>
@@ -164,53 +164,53 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         </div>
         
         <!-- Sección de Factura -->
-        <div id="receipt" class="mt-8 bg-white rounded-xl shadow-xl p-6 md:p-8 hidden slide-up mb-8">
+        <div id="receipt" class="mt-8 bg-white rounded-lg shadow-md p-5 md:p-6 hidden slide-up mb-8">
           <!-- Receipt content will be dynamically inserted here -->
         </div>
       </div>
     </main>
     
-    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-8 mt-12">
+    <footer class="bg-gray-800 text-white py-6 mt-8">
       <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
-            <h3 class="text-lg font-semibold mb-4 flex items-center">
-              <i class="fas fa-info-circle mr-2"></i> Sobre ALQUIPC
+            <h3 class="text-base font-medium mb-3 flex items-center">
+              <i class="fas fa-info-circle mr-2 text-gray-400"></i> Sobre ALQUIPC
             </h3>
-            <p class="text-gray-300 text-sm">
+            <p class="text-gray-300 text-xs">
               Empresa dedicada al alquiler de equipos de cómputo a nivel nacional con más de 10 años de experiencia en el sector.
             </p>
           </div>
           <div>
-            <h3 class="text-lg font-semibold mb-4 flex items-center">
-              <i class="fas fa-phone-alt mr-2"></i> Contacto
+            <h3 class="text-base font-medium mb-3 flex items-center">
+              <i class="fas fa-phone-alt mr-2 text-gray-400"></i> Contacto
             </h3>
-            <p class="text-gray-300 text-sm mb-2">Línea gratuita: 01 8000 123 456</p>
-            <p class="text-gray-300 text-sm">Email: contacto@alquipc.com</p>
+            <p class="text-gray-300 text-xs mb-1.5">Línea gratuita: 01 8000 123 456</p>
+            <p class="text-gray-300 text-xs">Email: contacto@alquipc.com</p>
           </div>
           <div>
-            <h3 class="text-lg font-semibold mb-4 flex items-center">
-              <i class="fas fa-leaf mr-2"></i> Compromiso
+            <h3 class="text-base font-medium mb-3 flex items-center">
+              <i class="fas fa-shield-alt mr-2 text-gray-400"></i> Compromiso
             </h3>
-            <p class="text-gray-300 text-sm">
+            <p class="text-gray-300 text-xs">
               Comprometidos con el medio ambiente y la calidad de servicio según normas ISO/IEC 25010 y WCAG.
             </p>
           </div>
         </div>
-        <div class="border-t border-gray-700 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div class="border-t border-gray-700 mt-5 pt-4 flex flex-col md:flex-row justify-between items-center">
           <div class="flex flex-col">
-            <p class="text-gray-400 text-sm">© ${new Date().getFullYear()} ALQUIPC - Todos los derechos reservados</p>
-            <p class="text-gray-400 text-sm mt-1">Desarrollado por Cristian</p>
+            <p class="text-gray-400 text-xs">© ${new Date().getFullYear()} ALQUIPC - Todos los derechos reservados</p>
+            <p class="text-gray-400 text-xs mt-1">Desarrollado por Cristian</p>
           </div>
-          <div class="mt-4 md:mt-0 flex space-x-4">
-            <a href="https://github.com/cris-sh/alquipc-billing" class="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github text-lg"></i><span class="sr-only">Repositorio GitHub</span>
+          <div class="mt-3 md:mt-0 flex space-x-3">
+            <a href="https://github.com/cris-sh/alquipc-billing" class="text-gray-400 hover:text-gray-300 transition-colors" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i><span class="sr-only">Repositorio GitHub</span>
             </a>
-            <a href="https://www.enux.dev/projects/alquipc" class="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-newspaper text-lg"></i><span class="sr-only">Artículo sobre el proyecto</span>
+            <a href="https://www.enux.dev/projects/alquipc" class="text-gray-400 hover:text-gray-300 transition-colors" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-newspaper"></i><span class="sr-only">Artículo sobre el proyecto</span>
             </a>
-            <a href="https://www.enux.dev" class="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-globe text-lg"></i><span class="sr-only">Portafolio web</span>
+            <a href="https://www.enux.dev" class="text-gray-400 hover:text-gray-300 transition-colors" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-globe"></i><span class="sr-only">Portafolio web</span>
             </a>
           </div>
         </div>
@@ -397,206 +397,204 @@ document
       receiptElement.scrollIntoView({ behavior: "smooth", block: "start" });
 
       receiptElement.innerHTML = `
-      <div class="flex justify-between items-start mb-6 pb-6 border-b border-gray-200">
-        <div>
-          <h2 class="text-3xl font-bold text-gray-800 flex items-center">
-            <i class="fas fa-file-invoice text-green-600 mr-3"></i>
-            Factura Digital
-          </h2>
-          <p class="text-gray-500">Fecha: ${new Date().toLocaleDateString(
-            "es-CO"
-          )}</p>
-        </div>
-        <div class="bg-blue-50 text-blue-700 py-2 px-4 rounded-lg border border-blue-200 flex items-center">
-          <i class="fas fa-id-card mr-2"></i>
-          <div>
-            <div class="text-xs uppercase text-blue-600">ID Cliente</div>
-            <div class="font-medium">${clientId}</div>
-          </div>
-        </div>
+  <div class="flex justify-between items-start mb-5 pb-4 border-b border-gray-200">
+    <div>
+      <h2 class="text-2xl font-semibold text-gray-800 flex items-center">
+        <i class="fas fa-file-invoice text-gray-600 mr-2"></i>
+        Factura Digital
+      </h2>
+      <p class="text-gray-500 text-sm">Fecha: ${new Date().toLocaleDateString(
+        "es-CO"
+      )}</p>
+    </div>
+    <div class="bg-blue-50 text-blue-700 py-2 px-3 rounded-md border border-blue-200 flex items-center">
+      <i class="fas fa-id-card mr-2"></i>
+      <div>
+        <div class="text-xs uppercase text-blue-600">ID Cliente</div>
+        <div class="font-medium text-sm">${clientId}</div>
       </div>
+    </div>
+  </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-gray-50 p-4 rounded-lg receipt-section">
-          <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-            <i class="fas ${locationIcon} text-blue-500 mr-2"></i>
-            Detalles de la Orden
-          </h3>
-          <ul class="space-y-3">
-            <li class="flex justify-between">
-              <span class="text-gray-600">Ubicación:</span>
-              <span class="font-medium">${locationText}</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="text-gray-600">Equipos:</span>
-              <span class="font-medium">${computerCount} unidades</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="text-gray-600">Días iniciales:</span>
-              <span class="font-medium">${initialDays} días</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="text-gray-600">Días adicionales:</span>
-              <span class="font-medium">${additionalDays} días</span>
-            </li>
-          </ul>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+    <div class="bg-gray-50 p-4 rounded-md receipt-section">
+      <h3 class="text-base font-medium text-gray-800 mb-3 flex items-center">
+        <i class="fas ${locationIcon} text-gray-600 mr-2"></i>
+        Detalles de la Orden
+      </h3>
+      <ul class="space-y-2 text-sm">
+        <li class="flex justify-between">
+          <span class="text-gray-600">Ubicación:</span>
+          <span class="font-medium">${locationText}</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="text-gray-600">Equipos:</span>
+          <span class="font-medium">${computerCount} unidades</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="text-gray-600">Días iniciales:</span>
+          <span class="font-medium">${initialDays} días</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="text-gray-600">Días adicionales:</span>
+          <span class="font-medium">${additionalDays} días</span>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="bg-gray-50 p-4 rounded-md receipt-section">
+      <h3 class="text-base font-medium text-gray-800 mb-3 flex items-center">
+        <i class="fas fa-receipt text-gray-600 mr-2"></i>
+        Resumen de Costos
+      </h3>
+      <ul class="space-y-2 text-sm">
+        <li class="flex justify-between">
+          <span class="text-gray-600">Precio por día:</span>
+          <span class="font-medium">${formatter.format(35000)}</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="text-gray-600">Días facturados:</span>
+          <span class="font-medium">${initialDays} días</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="text-gray-600">Total equipos × días:</span>
+          <span class="font-medium">${formatter.format(initialCost)}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Desglose detallado de costos -->
+  <div class="bg-white border border-gray-200 rounded-md shadow-sm overflow-hidden mb-6">
+    <div class="bg-gray-50 px-4 py-2 border-b border-gray-200">
+      <h3 class="font-medium text-gray-800 text-sm">Desglose Detallado</h3>
+    </div>
+    
+    <div class="p-4 space-y-3 text-sm">
+      <!-- Costos iniciales -->
+      <div class="pb-3">
+        <div class="flex justify-between font-medium text-gray-900">
+          <span>Costo días iniciales (${initialDays} días)</span>
+          <span>${formatter.format(initialCost)}</span>
         </div>
-        
-        <div class="bg-gray-50 p-4 rounded-lg receipt-section">
-          <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-            <i class="fas fa-receipt text-green-500 mr-2"></i>
-            Resumen de Costos
-          </h3>
-          <ul class="space-y-3">
-            <li class="flex justify-between">
-              <span class="text-gray-600">Precio por día:</span>
-              <span class="font-medium">${formatter.format(35000)}</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="text-gray-600">Días facturados:</span>
-              <span class="font-medium">${initialDays} días</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="text-gray-600">Total equipos × días:</span>
-              <span class="font-medium">${formatter.format(initialCost)}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Desglose detallado de costos -->
-      <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden mb-8">
-        <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
-          <h3 class="font-semibold text-gray-800">Desglose Detallado</h3>
-        </div>
-        
-        <div class="p-4 space-y-3">
-          <!-- Costos iniciales -->
-          <div class="pb-3">
-            <div class="flex justify-between font-medium text-gray-900">
-              <span>Costo días iniciales (${initialDays} días)</span>
-              <span>${formatter.format(initialCost)}</span>
-            </div>
-            <div class="text-sm text-gray-600">
-              <span>${computerCount} equipos × ${initialDays} días × ${formatter.format(
+        <div class="text-xs text-gray-600">
+          <span>${computerCount} equipos × ${initialDays} días × ${formatter.format(
         35000
       )}</span>
-            </div>
-          </div>
-          
-          <!-- Ajustes por ubicación -->
-          ${
-            priceSummary.locationAdjustment !== 0
-              ? `
-          <div class="pb-3 border-t border-gray-100 pt-3">
-            <div class="flex justify-between">
-              <span class="font-medium text-${
-                priceSummary.locationAdjustment > 0 ? "red" : "green"
-              }-600">
-                ${
-                  priceSummary.locationAdjustment > 0
-                    ? "Incremento"
-                    : "Descuento"
-                } por ubicación
-              </span>
-              <span class="font-medium text-${
-                priceSummary.locationAdjustment > 0 ? "red" : "green"
-              }-600">
-                ${
-                  priceSummary.locationAdjustment > 0 ? "+" : ""
-                }${formatter.format(priceSummary.locationAdjustment)}
-              </span>
-            </div>
-            <div class="text-sm text-gray-600">
-              <span>${formatter.format(initialCost)} × ${Math.abs(
-                  (priceSummary.locationAdjustment / initialCost) * 100
-                )}%</span>
-            </div>
-          </div>
-          `
-              : ""
-          }
-          
-          <!-- Subtotal después de ajustes de ubicación -->
-          <div class="pb-3 border-t border-gray-100 pt-3">
-            <div class="flex justify-between font-medium">
-              <span>Costo inicial ajustado</span>
-              <span>${formatter.format(adjustedInitialCost)}</span>
-            </div>
-          </div>
-          
-          <!-- Días adicionales si aplica -->
-          ${
-            additionalDays > 0
-              ? `
-          <div class="border-t border-gray-200 pt-3 mt-3">
-            <div class="flex justify-between font-medium text-gray-900">
-              <span>Costo días adicionales (${additionalDays} días)</span>
-              <span>${formatter.format(additionalCost)}</span>
-            </div>
-            <div class="text-sm text-gray-600 mb-2">
-              <span>${computerCount} equipos × ${additionalDays} días × ${formatter.format(
-                  35000
-                )}</span>
-            </div>
-            
-            <!-- Descuento por días adicionales -->
-            <div class="flex justify-between">
-              <span class="font-medium text-green-600">Descuento por días adicionales</span>
-              <span class="font-medium text-green-600">${formatter.format(
-                priceSummary.additionalDaysDiscount
-              )}</span>
-            </div>
-            <div class="text-sm text-gray-600 mb-2">
-              <span>${formatter.format(additionalCost)} × 2%</span>
-            </div>
-            
-            <!-- Subtotal después de descuentos -->
-            <div class="flex justify-between font-medium mt-2">
-              <span>Costo adicional ajustado</span>
-              <span>${formatter.format(adjustedAdditionalCost)}</span>
-            </div>
-          </div>
-          `
-              : ""
-          }
         </div>
       </div>
       
-      <!-- Total final con estilo destacado -->
-      <div class="bg-green-50 border border-green-200 rounded-lg p-6 flex justify-between items-center mb-6">
-        <div>
-          <div class="text-lg text-green-800 font-medium">Total a Pagar</div>
-          <div class="text-sm text-green-600">IVA incluido</div>
+      <!-- Ajustes por ubicación -->
+      ${
+        priceSummary.locationAdjustment !== 0
+          ? `
+      <div class="pb-3 border-t border-gray-100 pt-3">
+        <div class="flex justify-between">
+          <span class="font-medium text-${
+            priceSummary.locationAdjustment > 0 ? "red" : "green"
+          }-600">
+            ${
+              priceSummary.locationAdjustment > 0 ? "Incremento" : "Descuento"
+            } por ubicación
+          </span>
+          <span class="font-medium text-${
+            priceSummary.locationAdjustment > 0 ? "red" : "green"
+          }-600">
+            ${priceSummary.locationAdjustment > 0 ? "+" : ""}${formatter.format(
+              priceSummary.locationAdjustment
+            )}
+          </span>
         </div>
-        <div class="text-3xl font-bold text-green-700">
-          ${formatter.format(priceSummary.totalPrice)}
+        <div class="text-xs text-gray-600">
+          <span>${formatter.format(initialCost)} × ${Math.abs(
+              (priceSummary.locationAdjustment / initialCost) * 100
+            )}%</span>
+        </div>
+      </div>
+      `
+          : ""
+      }
+      
+      <!-- Subtotal después de ajustes de ubicación -->
+      <div class="pb-3 border-t border-gray-100 pt-3">
+        <div class="flex justify-between font-medium">
+          <span>Costo inicial ajustado</span>
+          <span>${formatter.format(adjustedInitialCost)}</span>
         </div>
       </div>
       
-      <!-- Mensaje de factura electrónica -->
-      <div id="email-information" class="bg-blue-50 border-l-4 border-blue-500 text-blue-700 p-4 mb-6 rounded">
-        <div class="flex items-start">
-          <i class="fas fa-info-circle mt-0.5 mr-3"></i>
-          <div>
-            <h4 class="font-semibold">Información Importante</h4>
-            <p class="text-sm mt-1">Esta factura será enviada por correo electrónico. ALQUIPC agradece su compromiso con el medio ambiente al no imprimir este recibo.</p>
-          </div>
+      <!-- Días adicionales si aplica -->
+      ${
+        additionalDays > 0
+          ? `
+      <div class="border-t border-gray-200 pt-3 mt-3">
+        <div class="flex justify-between font-medium text-gray-900">
+          <span>Costo días adicionales (${additionalDays} días)</span>
+          <span>${formatter.format(additionalCost)}</span>
+        </div>
+        <div class="text-xs text-gray-600 mb-2">
+          <span>${computerCount} equipos × ${additionalDays} días × ${formatter.format(
+              35000
+            )}</span>
+        </div>
+        
+        <!-- Descuento por días adicionales -->
+        <div class="flex justify-between">
+          <span class="font-medium text-green-600">Descuento por días adicionales</span>
+          <span class="font-medium text-green-600">${formatter.format(
+            priceSummary.additionalDaysDiscount
+          )}</span>
+        </div>
+        <div class="text-xs text-gray-600 mb-2">
+          <span>${formatter.format(additionalCost)} × 2%</span>
+        </div>
+        
+        <!-- Subtotal después de descuentos -->
+        <div class="flex justify-between font-medium mt-2">
+          <span>Costo adicional ajustado</span>
+          <span>${formatter.format(adjustedAdditionalCost)}</span>
         </div>
       </div>
-      
-      <!-- Botones de acción -->
-      <div id="action-buttons" class="flex flex-col sm:flex-row gap-4 mt-6">
-        <button id="new-order" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium shadow-md transition-colors flex-1 flex justify-center items-center">
-          <i class="fas fa-plus-circle mr-2"></i> Nueva Orden
-        </button>
-        <button id="download-pdf" class="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium shadow-md transition-colors flex justify-center items-center">
-          <i class="fas fa-file-pdf mr-2"></i> Descargar PDF
-        </button>
-        <button id="send-email" class="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium shadow-md transition-colors flex justify-center items-center">
-          <i class="fas fa-envelope mr-2"></i> Enviar por Email
-        </button>
+      `
+          : ""
+      }
+    </div>
+  </div>
+  
+  <!-- Total final -->
+  <div class="bg-gray-100 border border-gray-300 rounded-md p-4 flex justify-between items-center mb-5" id="total-summary">
+    <div>
+      <div class="text-base text-gray-800 font-medium" id="total-label">Total a Pagar</div>
+      <div class="text-xs text-gray-600" id="total-sublabel">IVA incluido</div>
+    </div>
+    <div class="text-xl font-bold text-gray-800" id="total-amount">
+      ${formatter.format(priceSummary.totalPrice)}
+    </div>
+  </div>
+  
+  <!-- Mensaje de factura electrónica -->
+  <div id="email-information" class="bg-blue-50 border-l-4 border-blue-500 text-blue-700 p-3 mb-5 rounded-md">
+    <div class="flex items-start">
+      <i class="fas fa-info-circle mt-0.5 mr-2"></i>
+      <div>
+        <h4 class="font-medium text-sm">Información</h4>
+        <p class="text-xs mt-1">Esta factura será enviada por correo electrónico. ALQUIPC agradece su compromiso con el medio ambiente al no imprimir este recibo.</p>
       </div>
+    </div>
+  </div>
+  
+  <!-- Botones de acción -->
+  <div id="action-buttons" class="flex flex-col sm:flex-row gap-3 mt-5">
+    <button id="new-order" class="bg-gray-700 hover:bg-gray-800 text-white py-2 px-4 rounded-md font-medium shadow-sm transition-colors flex-1 flex justify-center items-center text-sm">
+      <i class="fas fa-plus-circle mr-2"></i> Nueva Orden
+    </button>
+    <button id="download-pdf" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md font-medium shadow-sm transition-colors flex justify-center items-center text-sm">
+      <i class="fas fa-file-pdf mr-2"></i> Descargar PDF
+    </button>
+    <button id="send-email" class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-4 rounded-md font-medium shadow-sm transition-colors flex justify-center items-center text-sm">
+      <i class="fas fa-envelope mr-2"></i> Enviar por Email
+    </button>
+  </div>
     `;
 
       document.getElementById("new-order")?.addEventListener("click", () => {
@@ -617,10 +615,10 @@ document
       document
         .getElementById("download-pdf")
         ?.addEventListener("click", async function () {
-            const loadingModal = document.createElement("div");
-            loadingModal.className =
-              "fixed inset-0 bg-black/50 flex items-center justify-center z-50";
-            loadingModal.innerHTML = `
+          const loadingModal = document.createElement("div");
+          loadingModal.className =
+            "fixed inset-0 bg-black/50 flex items-center justify-center z-50";
+          loadingModal.innerHTML = `
             <div class="bg-white p-6 rounded-lg shadow-xl">
               <div class="flex items-center">
                 <i class="fas fa-spinner fa-spin mr-3 text-blue-500 text-xl"></i>
@@ -628,7 +626,7 @@ document
               </div>
             </div>
           `;
-            document.body.appendChild(loadingModal);
+          document.body.appendChild(loadingModal);
 
           try {
             if (!receiptElement) {

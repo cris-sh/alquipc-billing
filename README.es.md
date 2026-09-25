@@ -2,8 +2,11 @@
 
 [![English](https://img.shields.io/badge/lang-english-red.svg)](https://github.com/cris-sh/alquipc-billing/blob/master/README.md)
 [![Spanish](https://img.shields.io/badge/lang-spanish-yellow.svg)](https://github.com/cris-sh/alquipc-billing/blob/master/README.es.md)
+[![Estado](https://img.shields.io/badge/estado-archivado-lightgrey.svg)](#-estado-del-proyecto)
 
-ALQUIPC es un sistema de facturación moderno para el alquiler de equipos de cómputo. Diseñado siguiendo los estándares de calidad ISO/IEC 25010, permite calcular precios de alquiler con diferentes variables como ubicación, duración y cantidad de equipos.
+> **📦 Proyecto archivado.** Lo construí mientras estudiaba Análisis y Desarrollo de Software en el SENA, como uno de mis primeros proyectos web. Se mantiene público como registro de aprendizaje, pero ya no recibe mantenimiento ni nuevas versiones. El código sigue funcionando: puedes leerlo, clonarlo o hacerle fork.
+
+ALQUIPC es un sistema de facturación para el alquiler de equipos de cómputo. Diseñado siguiendo los estándares de calidad ISO/IEC 25010, permite calcular precios de alquiler con diferentes variables como ubicación, duración y cantidad de equipos.
 
 ## ✨ Características
 
@@ -23,7 +26,7 @@ ALQUIPC es un sistema de facturación moderno para el alquiler de equipos de có
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/yourusername/alquipc-billing.git
+git clone https://github.com/cris-sh/alquipc-billing.git
 
 # Entrar al directorio
 cd alquipc-billing
@@ -84,10 +87,22 @@ El sistema de facturación maneja varios escenarios de alquiler:
 ## 📱 Capturas de pantalla
 
 Formulario
+
 ![Formulario de Facturación](https://i.imgur.com/e94RzcX.png)
 
 Factura Generada
+
 ![Factura Generada](https://i.imgur.com/kgawDWR.png)
+
+## 📌 Estado del proyecto
+
+**Archivado, sin mantenimiento.**
+
+Fue uno de mis primeros proyectos web, escrito mientras aprendía TypeScript y las herramientas de front-end. Lo dejo público porque muestra de dónde vengo: requisitos convertidos en reglas de precios, pruebas unitarias sobre los cálculos y generación de PDF en el cliente.
+
+Qué haría distinto hoy: mover las reglas de precios detrás de una API, cubrir los casos límite con pruebas basadas en propiedades y manejar el dinero con un tipo decimal en lugar de punto flotante.
+
+Puedes ver en qué estoy trabajando ahora en mi [perfil de GitHub](https://github.com/cris-sh).
 
 ## 📄 Licencia
 
@@ -95,4 +110,4 @@ Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para más deta
 
 ## 👨‍💻 Autor
 
-Desarrollado por [Cristian Duarte](https://www.enux.dev)
+Desarrollado por [Cristian Duarte](https://cris.ac) · [LinkedIn](https://linkedin.com/in/enux)

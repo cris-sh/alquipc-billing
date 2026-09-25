@@ -2,8 +2,11 @@
 
 [![English](https://img.shields.io/badge/lang-english-red.svg)](https://github.com/cris-sh/alquipc-billing/blob/master/README.md)
 [![Spanish](https://img.shields.io/badge/lang-spanish-yellow.svg)](https://github.com/cris-sh/alquipc-billing/blob/master/README.es.md)
+[![Status](https://img.shields.io/badge/status-archived-lightgrey.svg)](#-project-status)
 
-ALQUIPC is a modern billing system for computer equipment rental. Designed following ISO/IEC 25010 quality standards, it calculates rental prices with different variables such as location, duration, and number of devices.
+> **📦 Archived project.** Built while studying Software Analysis and Development at SENA, as one of my first web projects. It is kept public as a learning milestone, but it is no longer maintained and won't receive updates. The code still runs — feel free to read it, clone it or fork it.
+
+ALQUIPC is a billing system for computer equipment rental. Designed following ISO/IEC 25010 quality standards, it calculates rental prices with different variables such as location, duration, and number of devices.
 
 ## ✨ Features
 
@@ -23,7 +26,7 @@ ALQUIPC is a modern billing system for computer equipment rental. Designed follo
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/alquipc-billing.git
+git clone https://github.com/cris-sh/alquipc-billing.git
 
 # Enter the directory
 cd alquipc-billing
@@ -84,10 +87,22 @@ The billing system handles various rental scenarios:
 ## 📱 Screenshots
 
 Form
+
 ![Billing Form](https://i.imgur.com/e94RzcX.png)
 
 Generated Invoice
+
 ![Generated Invoice](https://i.imgur.com/kgawDWR.png)
+
+## 📌 Project status
+
+**Archived — no longer maintained.**
+
+This was one of my first web projects, written while I was learning TypeScript and front-end tooling. I'm keeping it public because it shows where I started: requirements turned into pricing rules, unit tests for the calculations and PDF generation on the client.
+
+What I'd do differently today: move the pricing rules behind an API, cover edge cases with property-based tests and handle money with a decimal type instead of floating point.
+
+You can see what I'm building now in my [GitHub profile](https://github.com/cris-sh).
 
 ## 📄 License
 
@@ -95,4 +110,4 @@ This project is under the MIT License - see the LICENSE file for more details.
 
 ## 👨‍💻 Author
 
-Developed by [Cristian Duarte](https://www.enux.dev)
+Developed by [Cristian Duarte](https://cris.ac) · [LinkedIn](https://linkedin.com/in/enux)
